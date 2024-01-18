@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package testsoftwarehouse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Elia Sari
+ */
+public class soalNomor5 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan angka (pisahkan dengan koma): ");
+        String inputAngka = scanner.nextLine();
+
+        String[] angkaArr = inputAngka.split(",");
+        for (String angkaStr : angkaArr) {
+            int angka = Integer.parseInt(angkaStr.trim());
+            String hasilKonversi = konversiAngkaKeKata(angka);
+            System.out.print(hasilKonversi + " ");
+        }
+
+        scanner.close();
+    }
+
+    public static String konversiAngkaKeKata(int angka) {
+        Map<Integer, String> kataAngka = new HashMap<>();
+        kataAngka.put(0, "zero");
+        kataAngka.put(1, "one");
+        kataAngka.put(2, "two");
+        kataAngka.put(3, "three");
+        kataAngka.put(4, "four");
+        kataAngka.put(5, "five");
+        kataAngka.put(6, "six");
+        kataAngka.put(7, "seven");
+        kataAngka.put(8, "eight");
+        kataAngka.put(9, "nine");
+
+        String angkaStr = Integer.toString(angka);
+        StringBuilder hasil = new StringBuilder();
+
+        for (char digit : angkaStr.toCharArray()) {
+            int digitAngka = Character.getNumericValue(digit);
+            hasil.append(kataAngka.get(digitAngka)).append(" ");
+        }
+
+        return hasil.toString().trim();
+    }
+}
+

@@ -1,0 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package testsoftwarehouse;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Elia Sari
+ */
+public class soalNomor2 {
+     public static void main(String[] args) {
+         Scanner scan = new Scanner(System.in);
+         
+         System.out.println("Inputkan polindrom: ");
+         int x = scan.nextInt();
+
+         int dig;
+         int rev = 0;
+         int temp = x;
+         while (x > 0){
+             dig = x % 10;
+             rev = rev * 10 + dig;
+             x = x / 10;
+         }   
+         if(temp == rev)
+             System.out.println("polindrom number");
+         else
+             System.out.println("no polindrom");
+     }
+    
+}
